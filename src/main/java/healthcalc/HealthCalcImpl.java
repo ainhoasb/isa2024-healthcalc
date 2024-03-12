@@ -31,7 +31,7 @@ public class HealthCalcImpl implements HealthCalc {
             throw new Exception("Altura incorrecta, debe estar entre 140cm y 250cm");
         }else if(gender != 'm' && gender != 'M' && gender != 'w' && gender != 'W'){
             throw new Exception("Género incorrecto, debe ser 'm' o 'w'");
-        }else if(age<=0){
+        }else if(age<0 && age>120){
             throw new Exception("Edad incorrecta, debe ser mayor que 0");
         }
 
