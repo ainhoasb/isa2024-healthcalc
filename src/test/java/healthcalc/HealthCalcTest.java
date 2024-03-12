@@ -12,13 +12,7 @@ import org.junit.jupiter.api.Test;
 @DisplayName("Tests para la calculadora de salud.")
 public class HealthCalcTest {
 
-	private HealthCalcImpl calculadora;
-
-	@BeforeEach
-    public void initTests() {
-		//Antes de cada test se inicializa la variable calculadora.
-        calculadora = new HealthCalcImpl();
-    }
+	private HealthCalcImpl calculadora = new HealthCalcImpl();
 
 	//Tests para el método idealWeight()
 
@@ -34,7 +28,7 @@ public class HealthCalcTest {
 	@DisplayName("Test de altura incorrecta para idealWeight()")
 	public void testAlturaIncorrectoIW() {
 		//Se establece un rango normal de altura entre 140cm y 250cm, ambos incluidos
-		//Al establecer este rango, también se comprueba que no sea la altura negativa y que esté en centímetros 
+		//Al comprobar que se cumple este rango, también se comprueba que la altura no sea negativa y que esté en centímetros 
 
 		//Para un valor inferior al rango establecido
 		assertThrows(Exception.class, () -> {
@@ -48,7 +42,7 @@ public class HealthCalcTest {
 	}
 
 	@Test
-	@DisplayName("Test que comprueba si correcto el peso ideal masculino que devuelve idealWeight()")
+	@DisplayName("Test que comprueba si es correcto el peso ideal masculino que devuelve idealWeight()")
 	public void testIdealWeightM() throws Exception {
 		int height = 170;		
 
@@ -58,7 +52,7 @@ public class HealthCalcTest {
 	}
 
 	@Test
-	@DisplayName("Test que comprueba si correcto el peso ideal femenino que devuelve idealWeight()")
+	@DisplayName("Test que comprueba si es correcto el peso ideal femenino que devuelve idealWeight()")
 	public void testIdealWeightW() throws Exception {
 		int height = 170;		
 
@@ -81,7 +75,7 @@ public class HealthCalcTest {
 	@DisplayName("Test de altura incorrecta para basalMetabolicRate()")
 	public void testAlturaIncorrectoBMR() {
 		//Se establece un rango normal de altura entre 140cm y 250cm, ambos incluidos
-		//Al establecer este rango, también se comprueba que no sea la altura negativa y que esté en centímetros
+		//Al comprobar que se cumple este rango, también se comprueba que la altura no sea negativa y que esté en centímetros.
 
 		//Para un valor inferior al rango establecido
 		assertThrows(Exception.class, () -> {
@@ -104,7 +98,7 @@ public class HealthCalcTest {
 	}
 
 	@Test
-	@DisplayName("Test de peso incorrecto para basalMetabolicRate()")
+	@DisplayName("Test de edad incorrecta para basalMetabolicRate()")
 	public void testEdadIncorrectoBMR() {
 		//Se establece un rango normal de edad entre 0 y 120 años, ambos incluidos
 
@@ -120,7 +114,7 @@ public class HealthCalcTest {
 	}
 
 	@Test
-	@DisplayName("Test que comprueba si correcto el peso ideal masculino que devuelve basalMetabolicRate()")
+	@DisplayName("Test que comprueba si es correcta la tasa metabólica basal masculina que devuelve basalMetabolicRate()")
 	public void testBasalMetabolicRateM() throws Exception {
 		float weight = 70;
 		int height = 170;
@@ -133,7 +127,7 @@ public class HealthCalcTest {
 	}
 
 	@Test
-	@DisplayName("Test que comprueba si correcto el peso ideal femenino que devuelve basalMetabolicRate()")
+	@DisplayName("Test que comprueba si es correcta la tasa metabólica basal femenina que devuelve basalMetabolicRate()")
 	public void testBasalMetabolicRateW() throws Exception{
 		float weight = 70;
 		int height = 170;
