@@ -39,5 +39,5 @@ Una vez implementadas las clases `HealthCalcImpl` y `HealthCalcTest` se han ejec
 
 Durante el desarrollo de la práctica se ha hecho uso de Git y se ha registrado instantáneas (commits) a medida que avanzaba el proyecto.
 
-![Figura 2: Registro de instantáneas](resources/esquemaGit.png)
+![Figura 2: Registro de instantáneas](resources/registroGit.png)
 
