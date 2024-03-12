@@ -33,3 +33,11 @@ En esta práctica se desarrolla una calculadora que permite estimar varios pará
 Una vez implementadas las clases `HealthCalcImpl` y `HealthCalcTest` se han ejecutado los casos de prueba. En la siguiente imagen podemos observar que se pasan todos los test correctamente.
 
 ![Figura 1: Resultado al ejecutar los tests](resources/imagenTests.png)
+
+
+## Registro de instantáneas
+
+Durante el desarrollo de la práctica se ha hecho uso de Git y se ha registrado instantáneas (commits) a medida que avanzaba el proyecto.
+
+![Figura 2: Registro de instantáneas](resources/esquemaGit.png)
+
