@@ -41,3 +41,19 @@ Durante el desarrollo de la práctica se ha hecho uso de Git y se ha registrado 
 
 ![Figura 2: Registro de instantáneas](resources/registroGit.png)
 
+# Práctica 2 : Casos de uso
+
+Para esta práctica se ha realizado el diagrama de casos de uso de la calculadora de salud. Primero se ha creado el diagrama para definir los casos de uso de la práctica 1 y luego, en el siguiente diagrama se ha añadido dos casos de uso más.
+
+En este primer diagrama el actor es el usuario que utiliza la calculadora de salud. Este usuario puede calcular su peso ideal y su tasa metabólica basal. Para realizar estos cálculos, el usuario debe introducir sus datos, los cuales son los parámetros que utilizará la calculadora para obtener los resultados. Al introducir estos parámetros existe la posibilidad que se lancen excepciones si los datos no son válidos.
+
+![Figura 3: Diagrama casos de uso 1](doc/diagrama1.png)
+
+En el segundo diagrama se añade dos casos de uso más al anterior diagrama. Los casos de uso son los siguientes:
+
+- **Calcular índice de masa corporal**: BMI = peso(kg) / altura^2(m).
+- **Calcular agua corporal total (ATC)**:
+    - Para hombres: ACT = 2.447 − 0.09156 × edad + 0.1074 × altura(cm) + 0.3362 × peso(kg)
+    - Para mujeres: ACT = −2.097 + 0.1069 × altura(cm) + 0.2466 × peso(kg)
+
+![Figura 4: Diagrama casos de uso 2](doc/diagrama2.png)
