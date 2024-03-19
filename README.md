@@ -34,7 +34,6 @@ Una vez implementadas las clases `HealthCalcImpl` y `HealthCalcTest` se han ejec
 
 ![Figura 1: Resultado al ejecutar los tests](resources/imagenTests.png)
 
-
 ## Registro de instantáneas
 
 Durante el desarrollo de la práctica se ha hecho uso de Git y se ha registrado instantáneas (commits) a medida que avanzaba el proyecto.
@@ -43,7 +42,9 @@ Durante el desarrollo de la práctica se ha hecho uso de Git y se ha registrado 
 
 # Práctica 2 : Casos de uso
 
-Para esta práctica se ha realizado el diagrama de casos de uso de la calculadora de salud. Primero se ha creado el diagrama para definir los casos de uso de la práctica 1 y luego, en el siguiente diagrama se ha añadido dos casos de uso más.
+Para esta práctica se ha realizado el diagrama de casos de uso de la calculadora de salud. Primero se ha creado el diagrama para definir los casos de uso de la práctica 1 y luego, en el siguiente diagrama se ha añadido dos casos de uso más. Además, se ha especificado un caso de uso, en este caso "Calcular peso ideal".
+
+## Diagramas de casos de uso
 
 En este primer diagrama el actor es el usuario que utiliza la calculadora de salud. Este usuario puede calcular su peso ideal y su tasa metabólica basal. Para realizar estos cálculos, el usuario debe introducir sus datos, los cuales son los parámetros que utilizará la calculadora para obtener los resultados. Al introducir estos parámetros existe la posibilidad que se lancen excepciones si los datos no son válidos.
 
@@ -51,9 +52,44 @@ En este primer diagrama el actor es el usuario que utiliza la calculadora de sal
 
 En el segundo diagrama se añade dos casos de uso más al anterior diagrama. Los casos de uso son los siguientes:
 
-- **Calcular índice de masa corporal**: BMI = peso(kg) / altura^2(m).
-- **Calcular agua corporal total (ATC)**:
-    - Para hombres: ACT = 2.447 − 0.09156 × edad + 0.1074 × altura(cm) + 0.3362 × peso(kg)
-    - Para mujeres: ACT = −2.097 + 0.1069 × altura(cm) + 0.2466 × peso(kg)
+-   **Calcular índice de masa corporal**: BMI = peso(kg) / altura\^2(m).
+-   **Calcular agua corporal total (ATC)**:
+    -   Para hombres: ACT = 2.447 − 0.09156 × edad + 0.1074 × altura(cm) + 0.3362 × peso(kg)
+    -   Para mujeres: ACT = −2.097 + 0.1069 × altura(cm) + 0.2466 × peso(kg)
 
 ![Figura 4: Diagrama casos de uso 2](doc/diagrama2.png)
+
+## Especificación caso de uso
+
+-   Nombre del caso de uso: Calcular peso ideal
+
+-   Stakeholders:
+
+    -   Usuario --\> Conocer su peso ideal
+    -   Personal sanitario --\> Calcular el peso ideal de un paciente
+
+-   Actor principal: Usuario
+
+-   Alcance (scope): Calculadora de salud
+
+-   Precondición: El usuario debe tener acceso a la calculadora de salud
+
+-   Garantías:
+
+    -   Mínimas: los datos no serán compartidos sin el consentimiento explícito del usuario
+    -   De éxito: el usuario obtiene el resultado de su peso ideal
+
+-   Trigger: El usuario pulsa el botón "Calcular peso ideal"
+
+-   Escenario principal:
+
+    1.  El sistema solicita los parámetros necesarios
+    2.  El usuario introduce los datos
+    3.  El sistema valida los datos
+    4.  El sistema calcula el peso ideal
+    5.  El sistema muestra el resultado
+
+-   Escenario alternativo:
+
+    -   2b. El usuario introduce valores no válidos
+        -   2b1. El sistema muestra un mensaje de error y vuelve al paso 1
