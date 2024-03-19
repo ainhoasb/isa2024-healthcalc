@@ -1,0 +1,28 @@
+- Nombre del caso de uso: Calcular peso ideal
+
+- Stakeholders:
+	- Usuario --> Conocer su peso ideal
+	- Personal sanitario --> Calcular el peso ideal de un paciente
+
+- Actor principal: Usuario
+
+- Alcance (scope): Calculadora de salud
+
+- Precondición: El usuario debe tener acceso a la calculadora de salud
+
+- Garantías:
+	- Mínimas: los datos no serán compartidos sin el consentimiento explícito del usuario
+	- De éxito: el usuario obtiene el resultado de su peso ideal
+
+- Trigger: El usuario pulsa el botón "Calcular peso ideal"
+
+- Escenario principal:
+	1. El sistema solicita los parámetros necesarios
+	2. El usuario introduce los datos
+	3. El sistema valida los datos
+	4. El sistema calcula el peso ideal
+	5. El sistema muestra el resultado
+
+- Escenario alternativo: 
+	2b. El usuario introduce valores no válidos
+		2b1. El sistema muestra un mensaje de error y vuelve al paso 1
