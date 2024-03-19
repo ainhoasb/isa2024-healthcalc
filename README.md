@@ -34,11 +34,15 @@ Una vez implementadas las clases `HealthCalcImpl` y `HealthCalcTest` se han ejec
 
 ![Figura 1: Resultado al ejecutar los tests](resources/imagenTests.png)
 
+*Figura 1: Resultado al ejecutar los tests*
+
 ## Registro de instantáneas
 
 Durante el desarrollo de la práctica se ha hecho uso de Git y se ha registrado instantáneas (commits) a medida que avanzaba el proyecto.
 
 ![Figura 2: Registro de instantáneas](resources/registroGit.png)
+
+*Figura 2: Registro de instantáneas*
 
 # Práctica 2 : Casos de uso
 
@@ -50,6 +54,8 @@ En este primer diagrama el actor es el usuario que utiliza la calculadora de sal
 
 ![Figura 3: Diagrama casos de uso 1](doc/diagrama1.png)
 
+*Figura 3: Diagrama de casos de uso 1*
+
 En el segundo diagrama se añade dos casos de uso más al anterior diagrama. Los casos de uso son los siguientes:
 
 -   **Calcular índice de masa corporal**: BMI = peso(kg) / altura\^2(m).
@@ -59,37 +65,43 @@ En el segundo diagrama se añade dos casos de uso más al anterior diagrama. Los
 
 ![Figura 4: Diagrama casos de uso 2](doc/diagrama2.png)
 
+*Figura 4: Diagrama casos de uso 2*
+
 ## Especificación caso de uso
 
--   Nombre del caso de uso: Calcular peso ideal
+-   **Nombre del caso de uso:** Calcular peso ideal
 
--   Stakeholders:
+-   **Stakeholders:**
 
     -   Usuario --\> Conocer su peso ideal
     -   Personal sanitario --\> Calcular el peso ideal de un paciente
 
--   Actor principal: Usuario
+-   **Actor principal:** Usuario
 
--   Alcance (scope): Calculadora de salud
+-   **Alcance (scope):** Calculadora de salud
 
--   Precondición: El usuario debe tener acceso a la calculadora de salud
+-   **Precondición:** El usuario debe tener acceso a la calculadora de salud
 
--   Garantías:
+-   **Garantías:**
 
     -   Mínimas: los datos no serán compartidos sin el consentimiento explícito del usuario
     -   De éxito: el usuario obtiene el resultado de su peso ideal
 
--   Trigger: El usuario pulsa el botón "Calcular peso ideal"
+-   **Trigger:** El usuario pulsa el botón "Calcular peso ideal"
 
--   Escenario principal:
+-   **Escenario principal:**
 
-    1.  El sistema solicita los parámetros necesarios
-    2.  El usuario introduce los datos
-    3.  El sistema valida los datos
-    4.  El sistema calcula el peso ideal
-    5.  El sistema muestra el resultado
+    -   1- El sistema solicita los parámetros necesarios
 
--   Escenario alternativo:
+    -   2- El usuario introduce los datos
 
-    -   2b. El usuario introduce valores no válidos
-        -   2b1. El sistema muestra un mensaje de error y vuelve al paso 1
+    -   3- El sistema valida los datos
+
+    -   4- El sistema calcula el peso ideal
+
+    -   5- El sistema muestra el resultado
+
+-   **Escenario alternativo:**
+
+    -   2b- El usuario introduce valores no válidos
+        -   2b1- El sistema muestra un mensaje de error y vuelve al paso 1
