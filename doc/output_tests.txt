@@ -1,0 +1,136 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< uma.isa:HealthCalc >-------------------------
+[INFO] Building HealthCalc 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ HealthCalc ---
+[INFO] skip non existing resourceDirectory C:\Repositorios\isa2024-healthcalc\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ HealthCalc ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ HealthCalc ---
+[INFO] skip non existing resourceDirectory C:\Repositorios\isa2024-healthcalc\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ HealthCalc ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ HealthCalc ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running cucumber.RunCucumberTest
+
+@tag @tag1
+Scenario Outline: The parameters for calculating the basal metabolic rate are valid.   # resources/BMR.feature:30
+  Given A HealthCalc user                                                              # cucumber.StepDefinitions.a_health_calc_user()
+  When The user enters valid values for weight 80.0, height 170, gender "m" and age 30 # cucumber.StepDefinitions.the_user_enters_valid_values_for_weight_height_gender_and_age(float,java.lang.Integer,java.lang.String,java.lang.Integer)
+  Then The system returns the value 1717.5                                             # cucumber.StepDefinitions.the_system_returns_the_value(float)
+
+@tag @tag1
+Scenario Outline: The parameters for calculating the basal metabolic rate are valid.   # resources/BMR.feature:31
+  Given A HealthCalc user                                                              # cucumber.StepDefinitions.a_health_calc_user()
+  When The user enters valid values for weight 90.0, height 190, gender "m" and age 50 # cucumber.StepDefinitions.the_user_enters_valid_values_for_weight_height_gender_and_age(float,java.lang.Integer,java.lang.String,java.lang.Integer)
+  Then The system returns the value 1842.5                                             # cucumber.StepDefinitions.the_system_returns_the_value(float)
+
+@tag @tag1
+Scenario Outline: The parameters for calculating the basal metabolic rate are valid.   # resources/BMR.feature:32
+  Given A HealthCalc user                                                              # cucumber.StepDefinitions.a_health_calc_user()
+  When The user enters valid values for weight 55.0, height 160, gender "w" and age 25 # cucumber.StepDefinitions.the_user_enters_valid_values_for_weight_height_gender_and_age(float,java.lang.Integer,java.lang.String,java.lang.Integer)
+  Then The system returns the value 1264.0                                             # cucumber.StepDefinitions.the_system_returns_the_value(float)
+
+@tag @tag1
+Scenario Outline: The parameters for calculating the basal metabolic rate are valid.   # resources/BMR.feature:33
+  Given A HealthCalc user                                                              # cucumber.StepDefinitions.a_health_calc_user()
+  When The user enters valid values for weight 70.0, height 170, gender "w" and age 40 # cucumber.StepDefinitions.the_user_enters_valid_values_for_weight_height_gender_and_age(float,java.lang.Integer,java.lang.String,java.lang.Integer)
+  Then The system returns the value 1401.5                                             # cucumber.StepDefinitions.the_system_returns_the_value(float)
+
+@tag @tag2
+Scenario Outline: The parameters for calculating the basal metabolic rate are incorrect. # resources/BMR.feature:44
+  Given A HealthCalc user                                                                # cucumber.StepDefinitions.a_health_calc_user()
+  When The user enters incorrect values for weight 80, height 300, gender "m" and age 30 # cucumber.StepDefinitions.the_user_enters_incorrect_values_for_weight_height_gender_and_age(java.lang.Integer,java.lang.Integer,java.lang.String,java.lang.Integer)
+  Then The system raises an exception                                                    # cucumber.StepDefinitions.the_system_raises_an_exception()
+
+@tag @tag2
+Scenario Outline: The parameters for calculating the basal metabolic rate are incorrect. # resources/BMR.feature:45
+  Given A HealthCalc user                                                                # cucumber.StepDefinitions.a_health_calc_user()
+  When The user enters incorrect values for weight 90, height 190, gender "f" and age 50 # cucumber.StepDefinitions.the_user_enters_incorrect_values_for_weight_height_gender_and_age(java.lang.Integer,java.lang.Integer,java.lang.String,java.lang.Integer)
+  Then The system raises an exception                                                    # cucumber.StepDefinitions.the_system_raises_an_exception()
+
+@tag @tag2
+Scenario Outline: The parameters for calculating the basal metabolic rate are incorrect.  # resources/BMR.feature:46
+  Given A HealthCalc user                                                                 # cucumber.StepDefinitions.a_health_calc_user()
+  When The user enters incorrect values for weight -10, height 160, gender "w" and age 25 # cucumber.StepDefinitions.the_user_enters_incorrect_values_for_weight_height_gender_and_age(java.lang.Integer,java.lang.Integer,java.lang.String,java.lang.Integer)
+  Then The system raises an exception                                                     # cucumber.StepDefinitions.the_system_raises_an_exception()
+
+@tag @tag2
+Scenario Outline: The parameters for calculating the basal metabolic rate are incorrect.  # resources/BMR.feature:47
+  Given A HealthCalc user                                                                 # cucumber.StepDefinitions.a_health_calc_user()
+  When The user enters incorrect values for weight 70, height 170, gender "w" and age 200 # cucumber.StepDefinitions.the_user_enters_incorrect_values_for_weight_height_gender_and_age(java.lang.Integer,java.lang.Integer,java.lang.String,java.lang.Integer)
+  Then The system raises an exception                                                     # cucumber.StepDefinitions.the_system_raises_an_exception()
+
+@tag @tag1
+Scenario Outline: The parameters for calculating the ideal weight are valid.    # resources/IdealWeight.feature:30
+  Given A HealthCalc user                                                       # cucumber.StepDefinitions.a_health_calc_user()
+  When The user enters valid values for ideal weight, height 170 and gender "m" # cucumber.StepDefinitions.the_user_enters_valid_values_for_ideal_weight_height_and_gender(java.lang.Integer,java.lang.String)
+  Then The system returns the value 65.0                                        # cucumber.StepDefinitions.the_system_returns_the_value(float)
+
+@tag @tag1
+Scenario Outline: The parameters for calculating the ideal weight are valid.    # resources/IdealWeight.feature:31
+  Given A HealthCalc user                                                       # cucumber.StepDefinitions.a_health_calc_user()
+  When The user enters valid values for ideal weight, height 190 and gender "m" # cucumber.StepDefinitions.the_user_enters_valid_values_for_ideal_weight_height_and_gender(java.lang.Integer,java.lang.String)
+  Then The system returns the value 80.0                                        # cucumber.StepDefinitions.the_system_returns_the_value(float)
+
+@tag @tag1
+Scenario Outline: The parameters for calculating the ideal weight are valid.    # resources/IdealWeight.feature:32
+  Given A HealthCalc user                                                       # cucumber.StepDefinitions.a_health_calc_user()
+  When The user enters valid values for ideal weight, height 160 and gender "w" # cucumber.StepDefinitions.the_user_enters_valid_values_for_ideal_weight_height_and_gender(java.lang.Integer,java.lang.String)
+  Then The system returns the value 56.0                                        # cucumber.StepDefinitions.the_system_returns_the_value(float)
+
+@tag @tag1
+Scenario Outline: The parameters for calculating the ideal weight are valid.    # resources/IdealWeight.feature:33
+  Given A HealthCalc user                                                       # cucumber.StepDefinitions.a_health_calc_user()
+  When The user enters valid values for ideal weight, height 175 and gender "w" # cucumber.StepDefinitions.the_user_enters_valid_values_for_ideal_weight_height_and_gender(java.lang.Integer,java.lang.String)
+  Then The system returns the value 65.0                                        # cucumber.StepDefinitions.the_system_returns_the_value(float)
+
+@tag @tag2
+Scenario Outline: The parameters for calculating ideal weight are incorrect.       # resources/IdealWeight.feature:44
+  Given A HealthCalc user                                                          # cucumber.StepDefinitions.a_health_calc_user()
+  When The user enters incorrect values for ideal weight, height 80 and gender "m" # cucumber.StepDefinitions.the_user_enters_incorrect_values_for_ideal_weight_height_and_gender(java.lang.Integer,java.lang.String)
+  Then The system raises an exception                                              # cucumber.StepDefinitions.the_system_raises_an_exception()
+
+@tag @tag2
+Scenario Outline: The parameters for calculating ideal weight are incorrect.        # resources/IdealWeight.feature:45
+  Given A HealthCalc user                                                           # cucumber.StepDefinitions.a_health_calc_user()
+  When The user enters incorrect values for ideal weight, height 300 and gender "w" # cucumber.StepDefinitions.the_user_enters_incorrect_values_for_ideal_weight_height_and_gender(java.lang.Integer,java.lang.String)
+  Then The system raises an exception                                               # cucumber.StepDefinitions.the_system_raises_an_exception()
+
+@tag @tag2
+Scenario Outline: The parameters for calculating ideal weight are incorrect.        # resources/IdealWeight.feature:46
+  Given A HealthCalc user                                                           # cucumber.StepDefinitions.a_health_calc_user()
+  When The user enters incorrect values for ideal weight, height 160 and gender "v" # cucumber.StepDefinitions.the_user_enters_incorrect_values_for_ideal_weight_height_and_gender(java.lang.Integer,java.lang.String)
+  Then The system raises an exception                                               # cucumber.StepDefinitions.the_system_raises_an_exception()
+
+@tag @tag2
+Scenario Outline: The parameters for calculating ideal weight are incorrect.        # resources/IdealWeight.feature:47
+  Given A HealthCalc user                                                           # cucumber.StepDefinitions.a_health_calc_user()
+  When The user enters incorrect values for ideal weight, height 175 and gender "f" # cucumber.StepDefinitions.the_user_enters_incorrect_values_for_ideal_weight_height_and_gender(java.lang.Integer,java.lang.String)
+  Then The system raises an exception                                               # cucumber.StepDefinitions.the_system_raises_an_exception()
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.349 s -- in cucumber.RunCucumberTest
+[INFO] Running Tests para la calculadora de salud.
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.075 s -- in Tests para la calculadora de salud.
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.915 s
+[INFO] Finished at: 2024-03-26T23:08:55+01:00
+[INFO] ------------------------------------------------------------------------

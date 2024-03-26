@@ -22,21 +22,21 @@ Feature: Calculating a person's ideal weight.
   @tag1
   Scenario Outline: The parameters for calculating the ideal weight are valid.
     Given A HealthCalc user
-    When The user enters valid values for ideal weight (height <height> and gender <gender>)
+    When The user enters valid values for ideal weight, height <height> and gender <gender>
     Then The system returns the value <value>
 
     Examples: 
       | height | gender | value |
-      | 170    | "m"    | 65    |
-      | 190    | "m"    | 80    |
-      | 160    | "w"    | 56    |
-      | 175    | "w"    | 65    |
+      | 170    | "m"    | 65.0  |
+      | 190    | "m"    | 80.0  |
+      | 160    | "w"    | 56.0  |
+      | 175    | "w"    | 65.0  |
 
     
   @tag2
   Scenario Outline: The parameters for calculating ideal weight are incorrect.
     Given A HealthCalc user
-    When The user enters incorrect values for ideal weight (height <height> and gender <gender>)
+    When The user enters incorrect values for ideal weight, height <height> and gender <gender>
     Then The system raises an exception
    
    	Examples: 

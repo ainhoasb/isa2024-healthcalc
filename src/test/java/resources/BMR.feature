@@ -23,14 +23,14 @@ Feature: Calculating a person's basal metabolic rate.
   Scenario Outline: The parameters for calculating the basal metabolic rate are valid.
     Given A HealthCalc user
     When The user enters valid values for weight <weight>, height <height>, gender <gender> and age <age>
-    Then The system returns the value <values>
+    Then The system returns the value <value>
 
     Examples: 
-      | height | gender | weight | age | value  |
-      | 170    | "m"    | 80     | 30  | 1717.5 |
-      | 190    | "m"    | 90     | 50  | 1842.5 |
-      | 160    | "w"    | 55     | 25  | 1264   |
-      | 170    | "w"    | 70     | 40  | 1401.5 |
+      | weight | height | gender | age | value  |
+      | 80.0   | 170    | "m"    | 30  | 1717.5 |
+      | 90.0   | 190    | "m"    | 50  | 1842.5 |
+      | 55.0   | 160    | "w"    | 25  | 1264.0 |
+      | 70.0   | 170    | "w"    | 40  | 1401.5 |
 
     
   @tag2

@@ -46,3 +46,4 @@ public class HealthCalcImpl implements HealthCalc {
         return basalMetabolicRate;
     }    
 }
+
