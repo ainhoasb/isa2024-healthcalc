@@ -45,8 +45,8 @@
         <dependencies>
             <dependency>
                 <groupId>io.cucumber</groupId>
-                <artifactId>cucumber-java</artifactId>
-                <version>7.16.1</version>
+                <artifactId>cucumber-bom</artifactId>
+                <version>7.0.0</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

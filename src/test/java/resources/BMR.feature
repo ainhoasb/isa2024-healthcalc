@@ -22,8 +22,8 @@ Feature: Calculating a person's basal metabolic rate.
   @tag1
   Scenario Outline: The parameters for calculating the basal metabolic rate are valid.
     Given A HealthCalc user
-    When The user enters valid values their <height>, <gender>, <weight> and <age>
-    Then The system returns the value for the basal metabolic rate
+    When The user enters valid values for weight <weight>, height <height>, gender <gender> and age <age>
+    Then The system returns the value <values>
 
     Examples: 
       | height | gender | weight | age | value  |
@@ -36,8 +36,8 @@ Feature: Calculating a person's basal metabolic rate.
   @tag2
   Scenario Outline: The parameters for calculating the basal metabolic rate are incorrect.
     Given A HealthCalc user
-    When The user enters incorrect values for <height>, <gender>, <weight> and <age>
-    Then The system returns an error message with the parameters that are incorrect.
+    When The user enters incorrect values for weight <weight>, height <height>, gender <gender> and age <age>
+    Then The system raises an exception
    
    	Examples: 
       | height | gender | weight | age |
