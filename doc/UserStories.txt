@@ -7,13 +7,13 @@ Historia de usuario 1: Cálculo del peso ideal de una persona.
 	Criterios de aceptación:
 	
 	Escenario 1: Los parámetros para calcular el peso ideal son válidos.
-		Given [parámetros válidos para la altura y el género]
-		When [el usuario introduce su altura y género]
+		Given [un usuario de HealthCalc]
+		When [el usuario introduce valores válidos para su altura y género]
 		Then [el sistema devuelve el valor del peso ideal]
 
 	Escenario 2: Los parámetros para calcular el peso ideal son incorrectos.
-		Given [parámetros incorrectos para la altura y el género]
-		When [el usuario introduce su altura y género]
+		Given [un usuario de HealthCalc]
+		When [el usuario introduce valores incorrectos para su altura y género]
 		Then [el sistema devuelve un mensaje de error con la altura o género incorrecto]
 
 Historia de usuario 2: Cálculo de la tasa metabólica basal de una persona.
@@ -25,14 +25,14 @@ Historia de usuario 2: Cálculo de la tasa metabólica basal de una persona.
 	Criterios de aceptación:
 
 	Escenario 1: Los parámetros para calcular la tasa metabólica basal son válidos.
-		Given [parámetros válidos para la altura, género, peso y edad]
-		When [el usuario introduce su altura, género, peso y edad]
+		Given [un usuario de HealthCalc]
+		When [el usuario introduce valores válidos para su altura, género, peso y edad]
 		Then [el sistema devuelve el valor de la tasa metabólica basal]
 
 
 	Escenario 2: Los parámetros para calcular la tasa metabólica basal son incorrectos.
-		Given [parámetros incorrectos para la altura, género, peso y edad]
-		When [el usuario introduce su altura, género, peso y edad]
+		Given [un usuario de HealthCalc]
+		When [el usuario introduce valores incorrectos para su altura, género, peso y edad]
 		Then [el sistema devuelve un mensaje de error con los parámetros que son incorrectos]
 
 

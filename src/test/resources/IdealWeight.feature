@@ -21,8 +21,8 @@ Feature: Calculating a person's ideal weight.
     As a HealthCalc user I want to calculate my ideal weight So that achieving a healthy weight
   @tag1
   Scenario Outline: The parameters for calculating the ideal weight are valid.
-    Given Valid parameters for height and gender
-    When The user enters their <height> and <gender>
+    Given A HealthCalc user
+    When The user enters valid values their <height> and <gender>
     Then The system returns the <value> of the ideal weight
 
     Examples: 
@@ -35,8 +35,8 @@ Feature: Calculating a person's ideal weight.
     
   @tag2
   Scenario Outline: The parameters for calculating ideal weight are incorrect.
-    Given Incorrect parameters for height and gender
-    When The user enters their <height> and <gender>
+    Given A HealthCalc user
+    When The user enters incorrect values for <height> and <gender>
     Then The system returns an error message with the incorrect height or gender
    
    	Examples: 
