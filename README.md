@@ -34,6 +34,8 @@ Una vez implementadas las clases `HealthCalcImpl` y `HealthCalcTest` se han ejec
 
 ![Figura 1: Resultado al ejecutar los tests](resources/imagenTests.png)
 
+*Figura 1: Resultado al ejecutar los tests*
+
 
 ## Registro de instantáneas
 
@@ -41,3 +43,21 @@ Durante el desarrollo de la práctica se ha hecho uso de Git y se ha registrado 
 
 ![Figura 2: Registro de instantáneas](resources/registroGit.png)
 
+*Figura 2: Registro de instantáneas*
+
+
+# Práctica 4 : Interfaces gráficas de usuario
+
+Siguiendo con el desarrollo del proyecto HealthCalc se ha implementado una interfaz gráfica de usuario. Primero se ha diseñado un prototipo para usarlo de guía en el desarrollo de la interfaz. Posteriormente, usando *Windows Builder* para Java, se ha implementado una GUI para la calculadora siguiendo un patrón de diseño **Modelo-Vista-Controlador**.
+
+## Diseño de un prototipo de interfaz gráfica de usuario
+
+![Figura 3: Prototipo de interfaz gráfica de usuario](resources/boceto.png)
+
+*Figura 3: Prototipo de interfaz gráfica de usuario*
+
+## Desarrollo de una interfaz gráfica de usuario
+
+![Figura 4: Interfaz gráfica de usuario](resources/interfaz.png)
+
+*Figura 4: Interfaz gráfica de usuario*
