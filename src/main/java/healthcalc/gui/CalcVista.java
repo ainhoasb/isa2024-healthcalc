@@ -17,16 +17,10 @@ import java.awt.SystemColor;
 import java.awt.event.ActionListener;
 import java.awt.Color;
 import java.awt.FlowLayout;
-import javax.swing.border.LineBorder;
-import javax.swing.border.SoftBevelBorder;
-import javax.swing.border.BevelBorder;
-import javax.swing.UIManager;
-import javax.swing.BoxLayout;
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 import java.awt.Component;
 import javax.swing.Box;
 import javax.swing.SwingConstants;
-import javax.swing.DropMode;
 
 public class CalcVista extends JFrame {
 	
@@ -40,7 +34,6 @@ public class CalcVista extends JFrame {
 	private JTextField tfPeso;
 	private JButton btnCalcIW;
 	private JButton btnCalcBMR;
-	private JLabel lblError;
 	private JLabel lblIW;
 	private JLabel lblBMR;
 
@@ -280,33 +273,18 @@ public class CalcVista extends JFrame {
 		JPanel panelSur = new JPanel();
 		panelSur.setBackground(new Color(176, 196, 222));
 		contentPanePrincipal.add(panelSur, BorderLayout.SOUTH);
-		panelSur.setLayout(new BorderLayout(0, 0));
-		
-		JPanel panelSurNorte = new JPanel();
-		panelSurNorte.setBackground(new Color(176, 196, 222));
-		panelSur.add(panelSurNorte, BorderLayout.NORTH);
-		
-		lblError = new JLabel("");
-		lblError.setBackground(new Color(255, 255, 255));
-		lblError.setForeground(new Color(255, 0, 0));
-		lblError.setFont(new Font("Arial", Font.BOLD, 14));
-		panelSurNorte.add(lblError);
-		
-		JPanel panelSurSur = new JPanel();
-		panelSurSur.setBackground(new Color(176, 196, 222));
-		panelSur.add(panelSurSur, BorderLayout.SOUTH);
-		panelSurSur.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		panelSur.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		JPanel panelSurIzq = new JPanel();
 		panelSurIzq.setBackground(new Color(176, 196, 222));
-		panelSurSur.add(panelSurIzq);
+		panelSur.add(panelSurIzq);
 		
 		Component horizontalStrut_7 = Box.createHorizontalStrut(50);
 		panelSurIzq.add(horizontalStrut_7);
 		
 		JPanel panelSurCentro = new JPanel();
 		panelSurCentro.setBackground(new Color(176, 196, 222));
-		panelSurSur.add(panelSurCentro);
+		panelSur.add(panelSurCentro);
 		panelSurCentro.setLayout(new GridLayout(3, 2, 50, 10));
 		
 		btnCalcIW = new JButton("Calcular Peso Ideal");
@@ -324,17 +302,17 @@ public class CalcVista extends JFrame {
 		panelSurCentro.add(btnCalcBMR);
 		
 		lblIW = new JLabel("");
-		lblIW.setHorizontalAlignment(SwingConstants.CENTER);
 		lblIW.setOpaque(true);
-		lblIW.setBackground(new Color(240, 248, 255));
+		lblIW.setHorizontalAlignment(SwingConstants.CENTER);
 		lblIW.setFont(new Font("Arial", Font.BOLD, 14));
+		lblIW.setBackground(new Color(240, 248, 255));
 		panelSurCentro.add(lblIW);
 		
 		lblBMR = new JLabel("");
-		lblBMR.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBMR.setOpaque(true);
-		lblBMR.setBackground(new Color(240, 248, 255));
+		lblBMR.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBMR.setFont(new Font("Arial", Font.BOLD, 14));
+		lblBMR.setBackground(new Color(240, 248, 255));
 		panelSurCentro.add(lblBMR);
 		
 		Component verticalStrut_1 = Box.createVerticalStrut(40);
@@ -342,7 +320,7 @@ public class CalcVista extends JFrame {
 		
 		JPanel panelSurDer = new JPanel();
 		panelSurDer.setBackground(new Color(176, 196, 222));
-		panelSurSur.add(panelSurDer);
+		panelSur.add(panelSurDer);
 		
 		Component horizontalStrut_6 = Box.createHorizontalStrut(50);
 		panelSurDer.add(horizontalStrut_6);
@@ -401,11 +379,9 @@ public class CalcVista extends JFrame {
 	}
 	
 	public void registrarControlador(ActionListener ctrl) {
-	    // Configuración para el botón CalcularIW
 		btnCalcIW.addActionListener(ctrl);
 		btnCalcIW.setActionCommand("CalcularIW");
-
-	    // Configuración para el botón CalcularBMR
+		
 		btnCalcBMR.addActionListener(ctrl);
 		btnCalcBMR.setActionCommand("CalcularBMR");
 	}
