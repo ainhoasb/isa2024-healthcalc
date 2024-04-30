@@ -61,3 +61,8 @@ Siguiendo con el desarrollo del proyecto HealthCalc se ha implementado una inter
 ![Figura 4: Interfaz gráfica de usuario](resources/interfaz.png)
 
 *Figura 4: Interfaz gráfica de usuario*
+
+# Práctica 5 : Evaluación de apliaciones
+
+En esta práctica, se nos ha asignado dos aplicaciones de otros compañeros de clase. Debemos evaluar dichas aplicaciones y rellenar un formulario que recoge preguntas sobre los 10 principios generales de usabilidad (J. Nielsen).
+ 
