@@ -3,8 +3,12 @@ package healthcalc;
 public class Main {
     public static void main(String[] args) {
         // Crear instancias de la calculadora y del adaptador
-        HealthCalc calculadoraDirecta = HealthCalcImpl.getInstance();
+        HealthCalc calculadora = HealthCalcImpl.getInstance();
         HealthHospital hospitalCalc = new HealthCalcAdapter();
+
+        // Crear una instancia del Proxy
+        HealthCalc calcProxy = new HealthCalcProxy();
+        HealthStats statsProxy = (HealthStats) calcProxy;
 
         try {
             // Datos de prueba
@@ -23,11 +27,11 @@ public class Main {
             float peso2kg = 60; // en kg
 
             // Cálculos usando la implementación HealthCalcImpl
-            float iw1 = calculadoraDirecta.idealWeight(altura1cm, genero1);
-            float bmr1 = calculadoraDirecta.basalMetabolicRate(peso1kg, altura1cm, genero1, edad1);
+            float iw1 = calculadora.idealWeight(altura1cm, genero1);
+            float bmr1 = calculadora.basalMetabolicRate(peso1kg, altura1cm, genero1, edad1);
 
-            float iw2 = calculadoraDirecta.idealWeight(altura2cm, genero2);
-            float bmr2 = calculadoraDirecta.basalMetabolicRate(peso2kg, altura2cm, genero2, edad2);
+            float iw2 = calculadora.idealWeight(altura2cm, genero2);
+            float bmr2 = calculadora.basalMetabolicRate(peso2kg, altura2cm, genero2, edad2);
 
             // Cálculos usando el adaptador HealthCalcAdapter
             int iwAdapter1 = hospitalCalc.pesoIdeal(genero1, altura1m);
@@ -43,8 +47,25 @@ public class Main {
             System.out.println("Paciente 2 - Peso Ideal: " + iw2 + ", Adapter = " + iwAdapter2);
             System.out.println("Paciente 2 - BMR: " + bmr2 + ", Adapter = " + bmrAdapter2);
 
-            //Se obeserva que se obtiene los mismos resultados, por lo tanto, el patrón Adapter está correctamente implementado
+            // Se obeserva que se obtiene los mismos resultados, por lo tanto, el patrón Adapter está correctamente implementado
             
+            // Comprobación del patrón Proxy de Registros
+            // Realizar algunos cálculos para recoger estadísticas
+             calcProxy.idealWeight(180, 'm');
+             calcProxy.idealWeight(160, 'w');
+             calcProxy.basalMetabolicRate(70, 180, 'm', 25);
+             calcProxy.basalMetabolicRate(60, 160, 'w', 30);
+ 
+             // Imprimir estadísticas recogidas por el proxy
+             System.out.println("\nEstadísticas HealthCalc:");
+             System.out.println("Altura media: " + statsProxy.alturaMedia());
+             System.out.println("Peso medio: " + statsProxy.pesoMedio());
+             System.out.println("Edad media: " + statsProxy.edadMedia());
+             System.out.println("BMR medio: " + statsProxy.bmrMedio());
+             System.out.println("Número total de pacientes: " + statsProxy.numTotalPacientes());
+             System.out.println("Número de pacientes masculinos: " + statsProxy.numSexoH());
+             System.out.println("Número de pacientes femeninos: " + statsProxy.numSexoM());
+
         } catch (Exception e) {
             System.err.println("Error en el cálculo: " + e.getMessage());
         }
