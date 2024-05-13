@@ -13,7 +13,7 @@ public class CalcMain {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					HealthCalcImpl modelo = new HealthCalcImpl();
+					HealthCalcImpl modelo = HealthCalcImpl.getCalculadora();
 					CalcVista vista = new CalcVista();
 					CalcControlador controlador = new CalcControlador(modelo, vista);
 					vista.registrarControlador(controlador);

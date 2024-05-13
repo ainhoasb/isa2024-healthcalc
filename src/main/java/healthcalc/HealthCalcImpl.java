@@ -2,6 +2,20 @@ package healthcalc;
 
 public class HealthCalcImpl implements HealthCalc {
 
+    private static HealthCalcImpl calculadora;
+
+    // Constructor privado para evitar la instanciación directa
+    private HealthCalcImpl() {
+    }
+
+    // Método público estático para obtener la instancia calculadora
+    public static HealthCalcImpl getCalculadora() {
+        if (calculadora == null) {
+            calculadora = new HealthCalcImpl();
+        }
+        return calculadora;
+    }
+
     @Override
     public float idealWeight(int height, char gender) throws Exception{
         
