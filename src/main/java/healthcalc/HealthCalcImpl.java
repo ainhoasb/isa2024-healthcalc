@@ -2,18 +2,18 @@ package healthcalc;
 
 public class HealthCalcImpl implements HealthCalc {
 
-    private static HealthCalcImpl calculadora;
+    private static HealthCalcImpl instance;
 
     // Constructor privado para evitar la instanciación directa
     private HealthCalcImpl() {
     }
 
-    // Método público estático para obtener la instancia calculadora
-    public static HealthCalcImpl getCalculadora() {
-        if (calculadora == null) {
-            calculadora = new HealthCalcImpl();
+    // Método público estático para obtener la instancia
+    public static HealthCalcImpl getInstance() {
+        if (instance == null) {
+            instance = new HealthCalcImpl();
         }
-        return calculadora;
+        return instance;
     }
 
     @Override
