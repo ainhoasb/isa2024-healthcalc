@@ -65,4 +65,50 @@ Siguiendo con el desarrollo del proyecto HealthCalc se ha implementado una inter
 # Práctica 5 : Evaluación de aplicaciones
 
 En esta práctica se nos ha asignado dos aplicaciones de otros compañeros de clase. Debemos evaluar dichas aplicaciones y rellenar un formulario que recoge preguntas sobre los 10 principios generales de usabilidad (J. Nielsen).
+
+# Práctica 6 : Patrones de diseño
+
+Esta práctica consite en aplicar patrones de diseño a la calculadora que ya tenemos implementada. Los patrones utilizados son los siguientes:
+
+## Patrón Singleton
+
+Este patrón asegura que una clase tenga una única instancia, y proporciona un punto de acceso global a esa instancia.
+
+Se ha utilizado para instanciar la clase **HealthCalcImpl**. Este patrón garantiza que no importa cuántas veces o desde dónde se intente crear una instancia de la calculadora, siempre se utilizará la misma instancia, lo que es útil para mantener un estado consistente y controlado a través de toda la aplicación.
+
+![Figura 5: Patrón Singleton](design_patterns/Singleton.png)
+
+*Figura 5: Diagrama patrón Singleton*
+
+## Patrón Adapter
+
+Permite que interfaces incompatibles trabajen juntas al convertir la interfaz de una clase en otra que los clientes esperan.
+
+Este patrón se ha utilizado para integrar la calculadora en el sistema de un hospital. Este sistema utilizaba diferentes formatos de datos que los proporcionados por la primera implementación de la calculadora.
+
+![Figura 6: Patrón Adapter](design_patterns/Adapter.png)
+
+*Figura 6: Diagrama patrón Adapter*
+
+## Patrón Proxy
+
+Proporciona un sustituto o marcador de posición para otro objeto para controlar el acceso a este. Útil para manejar operaciones costosas en la creación de objetos, o para añadir seguridad adicional, o simplemente para interceptar llamadas a métodos.
+
+Se ha implementando con el fin de llevar un registro de las veces que se utiliza la calculadora, permitiendo obtener la media de los valores introducidos y calculados por la calculadora de todos los pacientes.
+
+![Figura 6: Patrón Proxy](design_patterns/Proxy.png)
+
+*Figura 6: Diagrama patrón Proxy*
+
+## Patrón Decorator
+
+Permite añadir nuevos comportamientos a los objetos colocando estos objetos dentro de objetos envolventes especiales que contienen los comportamientos.
+
+Se ha utilzado para adaptar los métodos de cálculo para convertir unidades de entrada y salida según las especificaciones europeas y americanas. También se ha implementado para imprimir los resultados en español e inglés.
+
+![Figura 6: Patrón Decorator](design_patterns/Decorator.png)
+
+*Figura 6: Diagrama patrón Decorator*
+
+
  
