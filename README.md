@@ -68,9 +68,9 @@ En esta práctica se nos ha asignado dos aplicaciones de otros compañeros de cl
 
 # Práctica 6 : Patrones de diseño
 
-Esta práctica consite en aplicar patrones de diseño a la calculadora que ya tenemos implementada. Los patrones utilizados son los siguientes:
+Esta práctica consiste en aplicar patrones de diseño a la calculadora que ya tenemos implementada. Los patrones utilizados son los siguientes:
 
-## Patrón Singleton
+## Patrón Singleton (Apartado 2)
 
 Este patrón asegura que una clase tenga una única instancia, y proporciona un punto de acceso global a esa instancia.
 
@@ -80,7 +80,7 @@ Se ha utilizado para instanciar la clase **HealthCalcImpl**. Este patrón garant
 
 *Figura 5: Diagrama patrón Singleton*
 
-## Patrón Adapter
+## Patrón Adapter (Apartado 3A)
 
 Permite que interfaces incompatibles trabajen juntas al convertir la interfaz de una clase en otra que los clientes esperan.
 
@@ -90,7 +90,7 @@ Este patrón se ha utilizado para integrar la calculadora en el sistema de un ho
 
 *Figura 6: Diagrama patrón Adapter*
 
-## Patrón Proxy
+## Patrón Proxy (Apartado 3B)
 
 Proporciona un sustituto o marcador de posición para otro objeto para controlar el acceso a este. Útil para manejar operaciones costosas en la creación de objetos, o para añadir seguridad adicional, o simplemente para interceptar llamadas a métodos.
 
@@ -100,7 +100,7 @@ Se ha implementando con el fin de llevar un registro de las veces que se utiliza
 
 *Figura 6: Diagrama patrón Proxy*
 
-## Patrón Decorator
+## Patrón Decorator (Apartado 3C)
 
 Permite añadir nuevos comportamientos a los objetos colocando estos objetos dentro de objetos envolventes especiales que contienen los comportamientos.
 
