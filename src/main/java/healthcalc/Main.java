@@ -42,10 +42,10 @@ public class Main {
 
             // Resultados
             System.out.println("Resultados HealthCalcImpl y Adapter:");
-            System.out.println("Paciente 1 - Peso Ideal: " + iw1 + ", Adapter = " + iwAdapter1);
-            System.out.println("Paciente 1 - BMR: " + bmr1 + ", Adapter = " + bmrAdapter1);
-            System.out.println("Paciente 2 - Peso Ideal: " + iw2 + ", Adapter = " + iwAdapter2);
-            System.out.println("Paciente 2 - BMR: " + bmr2 + ", Adapter = " + bmrAdapter2);
+            System.out.println("Paciente 1 - Peso Ideal: " + iw1 + " kg , Adapter = " + iwAdapter1 + "g");
+            System.out.println("Paciente 1 - BMR: " + bmr1 + " calorías/día , Adapter = " + bmrAdapter1 + " calorías/día");
+            System.out.println("Paciente 2 - Peso Ideal: " + iw2 + " kg , Adapter = " + iwAdapter2 + "g");
+            System.out.println("Paciente 2 - BMR: " + bmr2 + " calorías/día, Adapter = " + bmrAdapter2 + " calorías/día");
 
             // Se obeserva que se obtiene los mismos resultados, por lo tanto, el patrón Adapter está correctamente implementado
             
