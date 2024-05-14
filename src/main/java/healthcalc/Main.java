@@ -41,7 +41,7 @@ public class Main {
             double bmrAdapter2 = hospitalCalc.bmr(genero2, edad2, altura2m, peso2g);
 
             // Resultados
-            System.out.println("Resultados HealthCalcImpl y Adapter:");
+            System.out.println("--- Resultados HealthCalcImpl y Adapter ---");
             System.out.println("Paciente 1 - Peso Ideal: " + iw1 + " kg , Adapter = " + iwAdapter1 + "g");
             System.out.println("Paciente 1 - BMR: " + bmr1 + " calorías/día , Adapter = " + bmrAdapter1 + " calorías/día");
             System.out.println("Paciente 2 - Peso Ideal: " + iw2 + " kg , Adapter = " + iwAdapter2 + "g");
@@ -57,7 +57,7 @@ public class Main {
              calcProxy.bmr('w', 30, 1.60f, 60);
  
              // Imprimir estadísticas recogidas por el proxy
-             System.out.println("\nEstadísticas HealthCalc:");
+             System.out.println("\n--- Estadísticas HealthCalc ---");
              System.out.println("Altura media: " + statsProxy.alturaMedia());
              System.out.println("Peso medio: " + statsProxy.pesoMedio());
              System.out.println("Edad media: " + statsProxy.edadMedia());
@@ -68,6 +68,38 @@ public class Main {
 
         } catch (Exception e) {
             System.err.println("Error en el cálculo: " + e.getMessage());
+        }
+
+        // Envolver la calculadora HealthHospital con decoradores para manejar sistemas europeo y americano
+        // Se añade ambos decoradores de mensajes para imprimir en español y en inglés
+        HealthHospital europeanCalc = new SpanishMessage(new EnglishMessage(new EuropeanDecorator(hospitalCalc)));
+        HealthHospital americanCalc = new SpanishMessage(new EnglishMessage(new AmericanDecorator(hospitalCalc)));
+
+        // Datos de prueba
+        char genero = 'm';
+        int edad = 30;
+        float alturaEuropea = 1.75f; // en metros
+        int pesoEuropeo = 70000; // en gramos
+        float alturaAmericana = 5.74f; // en pies (aproximadamente 1.75 metros)
+        int pesoAmericano = 154; // en libras (aproximadamente 70 kilogramos)
+
+        try {
+            // Realizar cálculos usando la calculadora europea
+            System.out.println("\n--- Resultados del Sistema Europeo ---");
+            double bmrEuropeo = europeanCalc.bmr(genero, edad, alturaEuropea, pesoEuropeo);
+            int pesoIdealEuropeo = europeanCalc.pesoIdeal(genero, alturaEuropea);
+            System.out.println("BMR Europeo: " + bmrEuropeo + " calorías/día");
+            System.out.println("Peso Ideal Europeo: " + pesoIdealEuropeo + " gramos");
+
+            // Realizar cálculos usando la calculadora americana
+            System.out.println("\n--- Resultados del Sistema Americano ---");
+            double bmrAmericano = americanCalc.bmr(genero, edad, alturaAmericana, pesoAmericano);
+            int pesoIdealAmericano = americanCalc.pesoIdeal(genero, alturaAmericana);
+            System.out.println("BMR Americano: " + bmrAmericano  + " calorías/día");
+            System.out.println("Peso Ideal Americano: " + pesoIdealAmericano + " gramos");
+
+        } catch (Exception e) {
+            System.err.println("Error en los cálculos: " + e.getMessage());
         }
     }
 }
