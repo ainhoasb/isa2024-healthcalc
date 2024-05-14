@@ -7,7 +7,7 @@ public class Main {
         HealthHospital hospitalCalc = new HealthCalcAdapter();
 
         // Crear una instancia del Proxy
-        HealthCalc calcProxy = new HealthCalcProxy();
+        HealthHospital calcProxy = new HealthCalcProxy();
         HealthStats statsProxy = (HealthStats) calcProxy;
 
         try {
@@ -51,10 +51,10 @@ public class Main {
             
             // Comprobación del patrón Proxy de Registros
             // Realizar algunos cálculos para recoger estadísticas
-             calcProxy.idealWeight(180, 'm');
-             calcProxy.idealWeight(160, 'w');
-             calcProxy.basalMetabolicRate(70, 180, 'm', 25);
-             calcProxy.basalMetabolicRate(60, 160, 'w', 30);
+             calcProxy.pesoIdeal('m', 1.80f);
+             calcProxy.pesoIdeal('w', 1.60f);
+             calcProxy.bmr('m', 25, 1.80f, 70);
+             calcProxy.bmr('w', 30, 1.60f, 60);
  
              // Imprimir estadísticas recogidas por el proxy
              System.out.println("\nEstadísticas HealthCalc:");

@@ -3,56 +3,56 @@ package healthcalc;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HealthCalcProxy implements HealthCalc, HealthStats{
-    private HealthCalcImpl calculadora;
+public class HealthCalcProxy implements HealthHospital, HealthStats{
+    private HealthCalcAdapter calculadora;
     private List<Float> alturas = new ArrayList<>();
-    private List<Float> pesos = new ArrayList<>();
+    private List<Integer> pesos = new ArrayList<>();
     private List<Integer> edades = new ArrayList<>();
-    private List<Float> bmrs = new ArrayList<>();
+    private List<Double> bmrs = new ArrayList<>();
     private int numSexoH = 0;
     private int numSexoM = 0;
 
     public HealthCalcProxy() {
-        this.calculadora = HealthCalcImpl.getInstance();
+        this.calculadora = new HealthCalcAdapter();
     }
 
     @Override
-    public float idealWeight(int height, char gender) throws Exception  {
+    public double bmr(char genero, int edad, float altura, int peso) throws Exception {
         try {
-            float peso = calculadora.idealWeight(height, gender);
+            double bmr = calculadora.bmr(genero, edad, altura, peso);
             // Registrar los valores introducidos
-            alturas.add((float) height);
-            if (gender == 'm' || gender == 'M') {
-                numSexoH++;
-            } else if (gender == 'w' || gender == 'W') {
-                numSexoM++;
-            }
-            return peso;
-        } catch (Exception e) {
-            System.err.println("Error al calcular el peso ideal: " + e.getMessage());
-            throw e; 
-        }
-    }
-
-    @Override
-    public float basalMetabolicRate(float weight, int height, char gender, int age) throws Exception {
-        try {
-            float bmr = calculadora.basalMetabolicRate(weight, height, gender, age);
-            // Registrar los valores introducidos
-            pesos.add(weight);
-            alturas.add((float) height);
-            edades.add(age);
+            pesos.add(peso);
+            alturas.add(altura);
+            edades.add(edad);
             bmrs.add(bmr);
-            if (gender == 'm' || gender == 'M') {
+            if (genero == 'm' || genero == 'M') {
                 numSexoH++;
-            } else if (gender == 'w' || gender == 'W') {
+            } else if (genero == 'w' || genero == 'W') {
                 numSexoM++;
             }
             return bmr;
         } catch (Exception e) {
             System.err.println("Error al calcular la tasa metabólica basal: " + e.getMessage());
             throw e;
-        } 
+        }
+    }
+
+    @Override
+    public int pesoIdeal(char genero, float altura) throws Exception {
+        try {
+            int peso = calculadora.pesoIdeal(genero, altura);
+            // Registrar los valores introducidos
+            alturas.add(altura);
+            if (genero == 'm' || genero == 'M') {
+                numSexoH++;
+            } else if (genero == 'w' || genero == 'W') {
+                numSexoM++;
+            }
+            return peso;
+        } catch (Exception e) {
+            System.err.println("Error al calcular el peso ideal: " + e.getMessage());
+            throw e;
+        }
     }
 
     @Override
