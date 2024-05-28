@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 
 import healthcalc.Gender;
 import healthcalc.HealthCalcImpl;
+import healthcalc.Person;
+import healthcalc.PersonImpl;
 
 public class CalcControlador implements ActionListener{
 	
@@ -37,8 +39,10 @@ public class CalcControlador implements ActionListener{
 	private void calcularIW() throws Exception {
 		Gender genero = vista.getGenero();
         int altura = vista.getAltura();
+
+		Person persona = new PersonImpl(altura, genero);
         
-        float IW = modelo.idealWeight(altura, genero);
+        float IW = modelo.idealWeight(persona);
         vista.setResIW(IW);        
     }
 	
@@ -48,8 +52,10 @@ public class CalcControlador implements ActionListener{
         
         int edad = vista.getEdad();
         float peso = vista.getPeso();
+
+		Person persona = new PersonImpl(peso, altura, genero, edad);
         
-        float BMR = modelo.basalMetabolicRate(peso, altura, genero, edad);
+        float BMR = modelo.basalMetabolicRate(persona);
         vista.setResBMR(BMR); 
     }    
 }

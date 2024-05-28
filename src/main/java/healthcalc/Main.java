@@ -20,6 +20,8 @@ public class Main {
             int peso1g = 75000; // en gramos
             float peso1kg = 75; // en kg
 
+            Person persona1 = new PersonImpl(peso1kg, altura1cm, generoEnum1, edad1);
+
             char genero2 = 'w';
             Gender generoEnum2 = Gender.FEMALE;
             int edad2 = 30;
@@ -28,12 +30,14 @@ public class Main {
             int peso2g = 60000; // en gramos
             float peso2kg = 60; // en kg
 
-            // Cálculos usando la implementación HealthCalcImpl
-            float iw1 = calculadora.idealWeight(altura1cm, generoEnum1);
-            float bmr1 = calculadora.basalMetabolicRate(peso1kg, altura1cm, generoEnum1, edad1);
+            Person persona2 = new PersonImpl(peso2kg, altura2cm, generoEnum2, edad2);
 
-            float iw2 = calculadora.idealWeight(altura2cm, generoEnum2);
-            float bmr2 = calculadora.basalMetabolicRate(peso2kg, altura2cm, generoEnum2, edad2);
+            // Cálculos usando la implementación HealthCalcImpl
+            float iw1 = calculadora.idealWeight(persona1);
+            float bmr1 = calculadora.basalMetabolicRate(persona1);
+
+            float iw2 = calculadora.idealWeight(persona2);
+            float bmr2 = calculadora.basalMetabolicRate(persona2);
 
             // Cálculos usando el adaptador HealthCalcAdapter
             int iwAdapter1 = hospitalCalc.pesoIdeal(genero1, altura1m);
