@@ -42,7 +42,7 @@ public class CalcControlador implements ActionListener{
 
 		Person persona = new PersonImpl(altura, genero);
         
-        float IW = modelo.idealWeight(persona);
+        double IW = modelo.getIdealBodyWeight(persona);
         vista.setResIW(IW);        
     }
 	
@@ -55,7 +55,7 @@ public class CalcControlador implements ActionListener{
 
 		Person persona = new PersonImpl(peso, altura, genero, edad);
         
-        float BMR = modelo.basalMetabolicRate(persona);
+        double BMR = modelo.basalMetabolicRate(persona);
         vista.setResBMR(BMR); 
     }    
 }

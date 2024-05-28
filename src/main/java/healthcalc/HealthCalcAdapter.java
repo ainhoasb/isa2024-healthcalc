@@ -49,7 +49,7 @@ public class HealthCalcAdapter implements HealthHospital {
 
             Person persona = new PersonImpl(alturaCm, generoEnum);
 
-            float iW = calculadora.idealWeight(persona);
+            double iW = calculadora.getIdealBodyWeight(persona);
 
             // Cambiar el peso ideal de kg a gramos. 
             int pesoIdeal = (int) (iW*1000);

@@ -18,7 +18,7 @@ public class HealthCalcTest {
 	public void testGeneroIncorrectoIW() {
 		Person persona = new PersonImpl(170, null);
 		assertThrows(Exception.class, () -> {
-            calculadora.idealWeight(persona);
+            calculadora.getIdealBodyWeight(persona);
 		});		
 	}
 
@@ -32,12 +32,12 @@ public class HealthCalcTest {
 
 		//Para un valor inferior al rango establecido
 		assertThrows(Exception.class, () -> {
-            calculadora.idealWeight(persona1);
+            calculadora.getIdealBodyWeight(persona1);
 		});
 
 		//Para un valor superior al rango establecido
 		assertThrows(Exception.class, () -> {
-            calculadora.idealWeight(persona2);
+            calculadora.getIdealBodyWeight(persona2);
 		});
 	}
 
@@ -49,7 +49,7 @@ public class HealthCalcTest {
 
 		float IW = height - 100 - ((height - 150) / 4);
 
-		assertEquals(IW,calculadora.idealWeight(persona));
+		assertEquals(IW,calculadora.getIdealBodyWeight(persona));
 	}
 
 	@Test
@@ -60,7 +60,7 @@ public class HealthCalcTest {
 
 		float IW = height - 100 - ((height - 150) / 2.5f);
 
-		assertEquals(IW,calculadora.idealWeight(persona));
+		assertEquals(IW,calculadora.getIdealBodyWeight(persona));
 	}
 
 	//Tests para el método basalMetabolicRate()
@@ -131,7 +131,7 @@ public class HealthCalcTest {
 
 		Person persona = new PersonImpl(weight, height, Gender.MALE, age);
 
-		float BMR = 10 * weight + 6.25f * height - 5 * age + 5;
+		double BMR = 10 * weight + 6.25f * height - 5 * age + 5;
 		assertEquals(BMR, calculadora.basalMetabolicRate(persona));
 	
 	}
@@ -145,7 +145,7 @@ public class HealthCalcTest {
 
 		Person persona = new PersonImpl(weight, height, Gender.FEMALE, age);
 
-		float BMR = 10 * weight + 6.25f * height - 5 * age - 161;
+		double BMR = 10 * weight + 6.25f * height - 5 * age - 161;
 		assertEquals(BMR, calculadora.basalMetabolicRate(persona));
 	}
 }

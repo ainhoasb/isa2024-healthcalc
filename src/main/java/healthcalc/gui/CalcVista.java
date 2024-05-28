@@ -378,11 +378,11 @@ public class CalcVista extends JFrame {
 		return Float.parseFloat(texto);	
 	}
 	
-	public void setResIW(float res) {
+	public void setResIW(double res) {
 		lblIW.setText("El peso ideal es: " + res);
 	}
 	
-	public void setResBMR(float res) {
+	public void setResBMR(double res) {
 		lblBMR.setText("La tasa metabólica basal es: " + res);
 	}
 	

@@ -3,7 +3,7 @@ package healthcalc;
 public class Main {
     public static void main(String[] args) {
         // Crear instancias de la calculadora y del adaptador
-        HealthCalc calculadora = HealthCalcImpl.getInstance();
+        HealthCalcImpl calculadora = HealthCalcImpl.getInstance();
         HealthHospital hospitalCalc = new HealthCalcAdapter();
 
         // Crear una instancia del Proxy
@@ -33,11 +33,11 @@ public class Main {
             Person persona2 = new PersonImpl(peso2kg, altura2cm, generoEnum2, edad2);
 
             // Cálculos usando la implementación HealthCalcImpl
-            float iw1 = calculadora.idealWeight(persona1);
-            float bmr1 = calculadora.basalMetabolicRate(persona1);
+            double iw1 = calculadora.getIdealBodyWeight(persona1);
+            double bmr1 = calculadora.basalMetabolicRate(persona1);
 
-            float iw2 = calculadora.idealWeight(persona2);
-            float bmr2 = calculadora.basalMetabolicRate(persona2);
+            double iw2 = calculadora.getIdealBodyWeight(persona2);
+            double bmr2 = calculadora.basalMetabolicRate(persona2);
 
             // Cálculos usando el adaptador HealthCalcAdapter
             int iwAdapter1 = hospitalCalc.pesoIdeal(genero1, altura1m);
