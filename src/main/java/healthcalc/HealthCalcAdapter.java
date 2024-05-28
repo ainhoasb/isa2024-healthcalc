@@ -15,8 +15,16 @@ public class HealthCalcAdapter implements HealthHospital {
             // La altura de m se cambia a cm
             float pesoKg = peso/1000.0f;
             int alturaCm = (int) (altura*100);
-
-            return calculadora.basalMetabolicRate(pesoKg, alturaCm, genero, edad);
+            Gender generoEnum;
+            if (genero =='m' || genero == 'M'){
+                generoEnum = Gender.MALE;
+            }else if (genero =='w' || genero == 'W'){
+                generoEnum = Gender.FEMALE;
+            }else{
+                generoEnum = null;
+            }
+            
+            return calculadora.basalMetabolicRate(pesoKg, alturaCm, generoEnum, edad);
         } catch (Exception e) {
             throw new Exception("Error al calcular la tasa metabólica basal: " + e.getMessage(), e);
         }
@@ -28,8 +36,16 @@ public class HealthCalcAdapter implements HealthHospital {
             // Convertir los parámetros según necesite el método idealWeight() de HealthCalcImpl
             // La altura de m se cambia a cm
             int alturaCm = (int) (altura*100);
+            Gender generoEnum;
+            if (genero =='m' || genero == 'M'){
+                generoEnum = Gender.MALE;
+            }else if (genero =='w' || genero == 'W'){
+                generoEnum = Gender.FEMALE;
+            }else{
+                generoEnum = null;
+            }
 
-            float iW = calculadora.idealWeight(alturaCm, genero);
+            float iW = calculadora.idealWeight(alturaCm, generoEnum);
 
             // Cambiar el peso ideal de kg a gramos. 
             int pesoIdeal = (int) (iW*1000);

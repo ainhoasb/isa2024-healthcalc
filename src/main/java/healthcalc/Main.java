@@ -13,6 +13,7 @@ public class Main {
         try {
             // Datos de prueba
             char genero1 = 'm';
+            Gender generoEnum1 = Gender.MALE;
             int edad1 = 25;
             float altura1m = 1.80f; // en metros
             int altura1cm = 180; // en cm
@@ -20,6 +21,7 @@ public class Main {
             float peso1kg = 75; // en kg
 
             char genero2 = 'w';
+            Gender generoEnum2 = Gender.FEMALE;
             int edad2 = 30;
             float altura2m = 1.65f; // en metros
             int altura2cm = 165; // en cm
@@ -27,11 +29,11 @@ public class Main {
             float peso2kg = 60; // en kg
 
             // Cálculos usando la implementación HealthCalcImpl
-            float iw1 = calculadora.idealWeight(altura1cm, genero1);
-            float bmr1 = calculadora.basalMetabolicRate(peso1kg, altura1cm, genero1, edad1);
+            float iw1 = calculadora.idealWeight(altura1cm, generoEnum1);
+            float bmr1 = calculadora.basalMetabolicRate(peso1kg, altura1cm, generoEnum1, edad1);
 
-            float iw2 = calculadora.idealWeight(altura2cm, genero2);
-            float bmr2 = calculadora.basalMetabolicRate(peso2kg, altura2cm, genero2, edad2);
+            float iw2 = calculadora.idealWeight(altura2cm, generoEnum2);
+            float bmr2 = calculadora.basalMetabolicRate(peso2kg, altura2cm, generoEnum2, edad2);
 
             // Cálculos usando el adaptador HealthCalcAdapter
             int iwAdapter1 = hospitalCalc.pesoIdeal(genero1, altura1m);

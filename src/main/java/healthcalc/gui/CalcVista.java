@@ -18,6 +18,9 @@ import java.awt.event.ActionListener;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import org.eclipse.wb.swing.FocusTraversalOnArray;
+
+import healthcalc.Gender;
+
 import java.awt.Component;
 import javax.swing.Box;
 import javax.swing.SwingConstants;
@@ -247,7 +250,7 @@ public class CalcVista extends JFrame {
 		panelCentro.add(panelCentroDer);
 		panelCentroDer.setLayout(new GridLayout(5, 1, 0, 10));
 		
-		JLabel lblInfoGenero = new JLabel("('w' o 'm')");
+		JLabel lblInfoGenero = new JLabel("('female' o 'male')");
 		lblInfoGenero.setFont(new Font("Arial", Font.BOLD, 14));
 		panelCentroDer.add(lblInfoGenero);
 		
@@ -330,19 +333,24 @@ public class CalcVista extends JFrame {
 	}
 	
 	
-	public char getGenero() {
+	public Gender getGenero() {
 		String texto = tfGenero.getText().trim();
 		boolean mostrarError = false;
 		if (!mostrarError && (texto == null || texto.isEmpty())) {
 	        error("El campo Género está vacío.", vista);
 	        mostrarError = true;
 	    }
-	    if (!mostrarError && (texto.length()!= 1)) {
+	    if (!mostrarError && (!texto.equalsIgnoreCase("FEMALE") && !texto.equalsIgnoreCase("MALE"))) {
 	        error("El género es incorrecto.", vista);
 	        mostrarError = true;
 	    }
-	    
-	    char genero = texto.charAt(0);
+
+		Gender genero =null;
+		if (texto.equalsIgnoreCase("FEMALE")){
+			genero = Gender.FEMALE;
+		} else if (texto.equalsIgnoreCase("MALE")){
+			genero = Gender.MALE;
+		}
 	    return genero;
 	}
 	
