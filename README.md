@@ -96,9 +96,9 @@ Proporciona un sustituto o marcador de posición para otro objeto para controlar
 
 Se ha implementando con el fin de llevar un registro de las veces que se utiliza la calculadora, permitiendo obtener la media de los valores introducidos y calculados por la calculadora de todos los pacientes.
 
-![Figura 6: Patrón Proxy](design_patterns/Proxy.png)
+![Figura 7: Patrón Proxy](design_patterns/Proxy.png)
 
-*Figura 6: Diagrama patrón Proxy*
+*Figura 7: Diagrama patrón Proxy*
 
 ## Patrón Decorator (Apartado 3C)
 
@@ -106,9 +106,64 @@ Permite añadir nuevos comportamientos a los objetos colocando estos objetos den
 
 Se ha utilzado para adaptar los métodos de cálculo para convertir unidades de entrada y salida según las especificaciones europeas y americanas. También se ha implementado para imprimir los resultados en español e inglés.
 
-![Figura 6: Patrón Decorator](design_patterns/Decorator.png)
+![Figura 8: Patrón Decorator](design_patterns/Decorator.png)
 
-*Figura 6: Diagrama patrón Decorator*
+*Figura 8: Diagrama patrón Decorator*
 
+# Práctica 7 : Refactorización
 
- 
+## Refactorización 1 : Enumerado Gender
+
+- Bad smell: Primitive Obsession
+
+- Refactorings aplicados: Replace Primitive with Enumeration  (Reemplazar Primitivo por Enumeración)
+
+- Categoría: attribute refactoring
+
+- Descripción: Se ha cambiado el atributo 'gender' de tipo char a un enum con los valores Female y Male. Esto mejora la claridad y la seguridad del código, ya que ahora gender tiene un conjunto finito y explícito de valores posibles en lugar de depender de un carácter, lo que reduce la posibilidad de errores y hace que el código sea más legible y mantenible.
+
+- Cambios manuales:
+	- Creación de Enum Gender.
+	- Cambiar el atributo gender de char a Gender.
+	- Cambiar parámetros válidos de 'm' o 'w' a 'FEMALE' y ' MALE'.
+	- Cambiar 'm' por Gender.MALE
+	- Cambiar 'w' por Gender.FEMALE
+	- Modificar los test para que comprueben que se lanza la excepción si no es 'FEMALE' o' MALE'
+	- Cambiar getGenero() de la CalcVista para que devuelva Gender.MALE o Gender.FEMALE.
+
+En total por la refactorización se ha modificado 1 enum, 1 interfaz y 6 clases
+
+## Refactorización 2 : Interfaz Person
+
+- Bad smell: Data Clumps
+
+- Refactorings aplicados: Introduce Parameter Object (Introducir Objeto Parámetro)
+
+- Categoría: class refactoring
+
+- Descripción: Se ha creado la interfaz Person y la implementación de esa interfaz PersonImpl para poder crear un objeto con los atributos peso, altura, género y edad. Para poder encapsular todos estos atributos en un solo objeto. Los métodos que tenían todos esos atributos como parámatros ahora tienen un único parámetro. Esta refactorización mejora la legibilidad y mantenibilidad del código al reducir la longitud de las listas de parámetros y agrupar datos relacionados en una sola clase.
+
+- Cambios manuales: 
+	- Creación de la interfaz Person y la clase PersonImpl para implementar Person.
+	- Cambiar los parámetros de los métodos idealWeight() y basalMetabolicRate() ahora reciben un objeto Person.
+	- Extraer los atributos de Person para realizar los cálculos en los métodos idealWeight() y basalMetabolicRate()
+
+En total por la refactorización se ha modificado 2 interfaces y 6 clases 
+
+## Refactorización 3 : Interfaz CardiovascularMetrics y MetabolicMetrics
+
+- Bad smell: Large/God Class
+
+- Refactorings aplicados: Extract Interface
+
+- Categoría: class refactoring
+
+- Descripción: La interfaz HealthCalc ha sido dividida en dos interfaces más específicas: CardiovascularMetrics y MetabolicMetrics. Estas interfaces ahora separan los métodos relacionados con las métricas cardiovasculares y metabólicas, respectivamente, mejorando la cohesión y facilitando la mantenibilidad del código. La implementación original en HealthCalcImpl ha sido ajustada para implementar las nuevas interfaces.
+
+- Cambios manuales:
+	- Creación de las interfaces CardiovascularMetrics y MetabolicMetrics.
+	- Cambiar de float a double los resultados de los métodos idealWeight() y basalMetabolicRate().
+	- Cambiar el nombre del método idealWeight() a getIdealBodyWeight().
+
+En total por la refactorización se ha modificado 2 interfaces y 6 clases 
+	
