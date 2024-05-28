@@ -13,6 +13,12 @@ public class PersonImpl implements Person{
         this.age = age;
     }
 
+    //Un segundo constructor de persona en el caso que solo se calcule el peso ideal, ya que el usuario solo habrá introducido la altura y el género.
+    public PersonImpl(float height, Gender gender) {
+        this.height = height;
+        this.gender = gender;
+    }
+
     @Override
     public float weight() {
         return weight;

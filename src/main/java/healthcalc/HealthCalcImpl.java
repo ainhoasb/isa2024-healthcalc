@@ -43,7 +43,7 @@ public class HealthCalcImpl implements HealthCalc {
     @Override
     public float basalMetabolicRate(Person person) throws Exception{
         //Obtener los datos de la persona
-        float weight = person.height();
+        float weight = person.weight();
         float height = person.height();
         Gender gender = person.gender();
         int age = person.age();
