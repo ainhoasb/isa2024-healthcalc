@@ -11,6 +11,6 @@ public interface CardiovascularMetrics {
 	 * @return 		 	The ideal weight of the person (kg).
 	 * @throws Exception 
 	 */
-    public double getIdealBodyWeight(Person person);
+    public double getIdealBodyWeight(Person person) throws Exception;
     
 }

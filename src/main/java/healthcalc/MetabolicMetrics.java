@@ -11,5 +11,5 @@ public interface MetabolicMetrics {
 	 * @return	  		The Basal Metabolic Rate of the person.
 	 * @throws Exception
 	 */
-    public double basalMetabolicRate(Person person);
+    public double basalMetabolicRate(Person person) throws Exception;
 }

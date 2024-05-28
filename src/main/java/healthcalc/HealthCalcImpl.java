@@ -1,6 +1,6 @@
 package healthcalc;
 
-public class HealthCalcImpl implements HealthCalc {
+public class HealthCalcImpl implements CardiovascularMetrics, MetabolicMetrics {
 
     private static HealthCalcImpl instance;
 
@@ -17,7 +17,7 @@ public class HealthCalcImpl implements HealthCalc {
     }
 
     @Override
-    public float idealWeight(Person person) throws Exception{
+    public double getIdealBodyWeight(Person person) throws Exception{
         //Obtener los datos de la persona
         float height = person.height();
         Gender gender = person.gender();
@@ -29,7 +29,7 @@ public class HealthCalcImpl implements HealthCalc {
             throw new Exception("Género incorrecto, debe ser FEMALE o MALE ");
         }
 
-        float idealWeight;
+        double idealWeight;
         
         if (gender == Gender.MALE){
             idealWeight = height - 100 - ((height - 150) / 4);
@@ -41,7 +41,7 @@ public class HealthCalcImpl implements HealthCalc {
     }
 
     @Override
-    public float basalMetabolicRate(Person person) throws Exception{
+    public double basalMetabolicRate(Person person) throws Exception{
         //Obtener los datos de la persona
         float weight = person.weight();
         float height = person.height();
@@ -58,7 +58,7 @@ public class HealthCalcImpl implements HealthCalc {
             throw new Exception("Edad incorrecta, debe ser mayor que 0");
         }
 
-        float basalMetabolicRate;
+        double basalMetabolicRate;
 
         if (gender == Gender.MALE){
             basalMetabolicRate = 10 * weight + 6.25f * height - 5 * age + 5;
